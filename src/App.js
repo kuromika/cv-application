@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BasicInfo from "./components/BasicInfo";
 import EducationInfo from "./components/EducationInfo";
+import ExperienceInfo from "./components/ExperienceInfo";
 class App extends Component{
 
   constructor() {
@@ -33,6 +34,7 @@ class App extends Component{
           cb={this.handleBasicChange}
         />
         <EducationInfo />
+        <ExperienceInfo />
         
       </div>
     )

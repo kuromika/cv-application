@@ -1,42 +1,45 @@
 import React, { Component } from "react";
 import InfoInput from "./InfoInput";
 
-class EducationInfo extends Component{
+class ExperienceInfo extends Component{
 
     render() {
         return (
-            //callbacks are pending
             <div>
                 <div>
-                    <h2>Education</h2>
+                    <h2>Experience</h2>
                     <button type="button"> add </button>
                 </div>
                 <div>
                     <InfoInput
-                        name='school'
-                        label='School name: '
+                        name='company'
                         type='text'
+                        label='Company: '
                     />
                     <InfoInput
-                        name='title'
-                        label='Title: '
-                        type="text"
+                        name='position'
+                        type='text'
+                        label='Position: '
+                    />
+                    <InfoInput
+                        name='tasks'
+                        type='text'
+                        label='Tasks: '
                     />
                     <InfoInput
                         name='start'
-                        label='Start date: '
                         type='date'
+                        label='Start date: '
                     />
                     <InfoInput
                         name='end'
-                        label='End date: '
-                        type='date'
+                        type="date"
+                        label='End date'
                     />
-                    <button type="button"> delete </button>
                 </div>
             </div>
         )
     }
 }
 
-export default EducationInfo;
+export default ExperienceInfo;
