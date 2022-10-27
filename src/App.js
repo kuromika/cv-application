@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BasicInfo from "./components/BasicInfo";
+import EducationInfo from "./components/EducationInfo";
 class App extends Component{
 
   constructor() {
@@ -30,7 +31,9 @@ class App extends Component{
         <h1>Create CV</h1>
         <BasicInfo
           cb={this.handleBasicChange}
-          />
+        />
+        <EducationInfo />
+        
       </div>
     )
   }

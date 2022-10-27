@@ -7,23 +7,24 @@ class BasicInfo extends Component {
     render() {
         return (
             <div>
+                <h2>Basic Information</h2>
                 <InfoInput
-                    placeholder="Full name"
                     cb={this.props.cb}
                     type="text"
-                    name = 'name'
+                    name='name'
+                    label= 'Full name: '
                 />
                 <InfoInput
-                    placeholder="Email"
                     cb={this.props.cb}
                     type="email"
-                    name = 'email'
+                    name='email'
+                    label= 'Email: '
                 />
                 <InfoInput
-                    placeholder="Phone"
                     cb={this.props.cb}
                     type="phone" 
-                    name = 'phone'
+                    name='phone'
+                    label= 'Phone: '
                     />
             </div>
         );

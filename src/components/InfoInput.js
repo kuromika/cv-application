@@ -14,11 +14,15 @@ class InfoInput extends Component{
 
     render() {
         return (
-            <input type={this.props.type}
-                placeholder={this.props.placeholder}
-                onChange={this.handleInputChange}
-                name ={this.props.name}>
-            </input>
+
+            <div>
+                <label for={this.props.name}>{this.props.label}</label>
+                    <input type={this.props.type}
+                        onChange={this.handleInputChange}
+                        name={this.props.name}
+                        id={this.props.name}>
+                    </input>
+            </div>
         )
     }
 }
