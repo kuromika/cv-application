@@ -5,23 +5,25 @@ class BasicInfo extends Component {
 
    
     render() {
-        const { namecb, emailcb, phonecb} = this.props;
         return (
             <div>
                 <InfoInput
                     placeholder="Full name"
-                    cb={namecb}
+                    cb={this.props.cb}
                     type="text"
+                    name = 'name'
                 />
                 <InfoInput
                     placeholder="Email"
-                    cb={emailcb}
+                    cb={this.props.cb}
                     type="email"
+                    name = 'email'
                 />
                 <InfoInput
                     placeholder="Phone"
-                    cb={phonecb}
+                    cb={this.props.cb}
                     type="phone" 
+                    name = 'phone'
                     />
             </div>
         );

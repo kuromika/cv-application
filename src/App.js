@@ -11,40 +11,16 @@ class App extends Component{
         phone: '',
       },
     };
-
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePhoneChange = this.handlePhoneChange.bind(this);
+    this.handleBasicChange = this.handleBasicChange.bind(this);
   }
 
-  handleNameChange(name) {
-    this.setState({
+  handleBasicChange(name, value) {
+    this.setState(prevState => ({
       basic: {
-        name: name,
-        email: this.state.basic.email,
-        phone: this.state.basic.phone
+        ...prevState.basic,
+        [name]: value,
       }
-    })
-  }
-
-  handleEmailChange(email) {
-    this.setState({
-      basic: {
-        name: this.state.basic.name,
-        email: email,
-        phone: this.state.basic.phone
-      }
-    })
-  }
-
-  handlePhoneChange(phone) {
-    this.setState({
-      basic: {
-        name: this.state.basic.name,
-        email: this.state.basic.email,
-        phone: phone
-      }
-    })
+    }))
   }
 
 
@@ -53,9 +29,7 @@ class App extends Component{
       <div>
         <h1>Create CV</h1>
         <BasicInfo
-          namecb={this.handleNameChange}
-          emailcb={this.handleEmailChange}
-          phonecb={this.handlePhoneChange}
+          cb={this.handleBasicChange}
           />
       </div>
     )
