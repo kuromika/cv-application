@@ -29,13 +29,15 @@ class App extends Component{
   render() {
     return (
       <div>
-        <h1>Create CV</h1>
-        <BasicInfo
-          cb={this.handleBasicChange}
-        />
-        <EducationInfo />
-        <ExperienceInfo />
-        
+        <form onSubmit=''>
+          <h1>Create CV</h1>
+          <BasicInfo
+            cb={this.handleBasicChange}
+          />
+          <EducationInfo />
+          <ExperienceInfo />
+          <button type="submit"> Preview </button>
+        </form>
       </div>
     )
   }
