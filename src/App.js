@@ -1,16 +1,20 @@
 import React, { Component } from "react";
-
+import BasicInfo from "./components/BasicInfo";
 class App extends Component{
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       basic: {
         name: '',
         email: '',
         phone: '',
       },
-    }
+    };
+
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePhoneChange = this.handlePhoneChange.bind(this);
   }
 
   handleNameChange(name) {
@@ -48,6 +52,11 @@ class App extends Component{
     return (
       <div>
         <h1>Create CV</h1>
+        <BasicInfo
+          namecb={this.handleNameChange}
+          emailcb={this.handleEmailChange}
+          phonecb={this.handlePhoneChange}
+          />
       </div>
     )
   }
