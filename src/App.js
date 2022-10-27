@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BasicInfo from "./components/BasicInfo";
+import DisplayCV from "./components/DisplayCV";
 import EducationInfo from "./components/EducationInfo";
 import ExperienceInfo from "./components/ExperienceInfo";
 class App extends Component{
@@ -29,7 +30,7 @@ class App extends Component{
   render() {
     return (
       <div>
-        <form onSubmit=''>
+        <form >
           <h1>Create CV</h1>
           <BasicInfo
             cb={this.handleBasicChange}
@@ -38,6 +39,7 @@ class App extends Component{
           <ExperienceInfo />
           <button type="submit"> Preview </button>
         </form>
+        <DisplayCV education={[]} experience={[]} />
       </div>
     )
   }
