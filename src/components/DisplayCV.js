@@ -51,6 +51,7 @@ class DisplayCV extends Component{
                     <hr></hr>
                     {experience}
                 </div>
+                <button type="button">Edit</button>
             </div>
         )
     }

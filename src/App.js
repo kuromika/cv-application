@@ -13,6 +13,8 @@ class App extends Component{
         email: '',
         phone: '',
       },
+      education: [],
+      experience: []
     };
     this.handleBasicChange = this.handleBasicChange.bind(this);
   }
