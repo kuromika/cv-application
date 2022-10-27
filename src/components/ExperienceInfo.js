@@ -36,6 +36,7 @@ class ExperienceInfo extends Component{
                         type="date"
                         label='End date'
                     />
+                    <button type="button"> delete </button>
                 </div>
             </div>
         )
