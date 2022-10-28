@@ -19,8 +19,8 @@ body{
 }
 
 #content{
-    width: 70vw;
-    padding: 20px;
+    width: 100%;
+    padding: 5px;
 }
 
 form{
@@ -28,7 +28,7 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 50px 10vw;
+    padding: 30px 5vw;
     border: 3px solid #D6D9DC;
     border-radius: 50px;
     gap: 30px;
@@ -94,6 +94,7 @@ form input{
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
+    width: 100%;
 }
 
 
@@ -172,6 +173,7 @@ form input{
 .display .header{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .display .info p{
@@ -181,3 +183,21 @@ form input{
 .hidden {
     display: none;
 }
+
+
+
+@media screen and (min-width:900px){
+    #content{
+        width: 60vw;
+    }
+
+    .display .header{
+        flex-direction: row;
+    }
+
+    form{
+        padding: 50px 10vw;
+    }
+}
+
+
