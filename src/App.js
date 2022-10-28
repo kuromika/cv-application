@@ -65,12 +65,12 @@ class App extends Component{
           />
           <button type="submit"> Preview </button>
         </form>
-        {/* <DisplayCV
+        <DisplayCV
           name={this.state.basic.name}
           email={this.state.basic.email}
-          phone={this.state.phone}
+          phone={this.state.basic.phone}
           education={this.state.education}
-          experience={this.state.experience} /> */}
+          experience={this.state.experience} />
       </div>
     )
   }

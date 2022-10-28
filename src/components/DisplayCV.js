@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uniqid from 'uniqid';
 
 class DisplayCV extends Component{
 
@@ -6,10 +7,10 @@ class DisplayCV extends Component{
         const education = [];
         this.props.education.forEach((school) => {
             education.push(
-                <div>
+                <div key={uniqid()}>
                     <div>
                         <h4>{school.name}</h4>
-                        <span>{school.start.ToLocaleString()} - {school.end.ToLocaleString()}</span>
+                        <span>from {school.start} to {school.end}</span>
                     </div>
                     <h5>{school.title}</h5>
                 </div>
@@ -19,10 +20,10 @@ class DisplayCV extends Component{
         const experience = [];
         this.props.experience.forEach((job) => {
             experience.push(
-                <div>
+                <div key={uniqid()}>
                     <div>
                         <h4>{job.position}</h4>
-                        <span>{job.start.ToLocaleString()} - {job.end.ToLocaleString()}</span>
+                        <span>{job.start} - {job.end}</span>
                     </div>
                     <h5>{job.company}</h5>
                     <p>{job.tasks}</p>
