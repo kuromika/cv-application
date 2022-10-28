@@ -10,7 +10,17 @@ class DisplayCV extends Component{
         return `${months[+alpha[1]]}, ${alpha[0]}`
     }
 
+    handleEdit() {
+        document.getElementById('form').classList.toggle('')
+    }
+
     render() {
+
+        let className = '';
+        if (!this.props.display) {
+            className += 'hidden';
+        }
+
         const education = [];
         this.props.education.forEach((school) => {
             education.push(
@@ -39,7 +49,7 @@ class DisplayCV extends Component{
         })
 
         return (
-            <div>
+            <div className={className} id="display">
                 <div>
                     <h1>{this.props.name}</h1>
                     <div>
@@ -59,7 +69,7 @@ class DisplayCV extends Component{
                     <hr></hr>
                     {experience}
                 </div>
-                <button type="button">Edit</button>
+                <button type="button" onClick={this.props.alternate}>Edit</button>
             </div>
         )
     }

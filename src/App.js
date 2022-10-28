@@ -3,6 +3,7 @@ import BasicInfo from "./components/BasicInfo";
 import DisplayCV from "./components/DisplayCV";
 import EducationInfo from "./components/EducationInfo";
 import ExperienceInfo from "./components/ExperienceInfo";
+import './styles/style.css';
 class App extends Component{
 
   constructor() {
@@ -14,11 +15,14 @@ class App extends Component{
         phone: '',
       },
       education: [],
-      experience: []
+      experience: [],
+      display: false,
     };
     this.handleBasicChange = this.handleBasicChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleExperienceChange = this.handleExperienceChange.bind(this);
+    this.alternateDisplay = this.alternateDisplay.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleBasicChange(name, value) {
@@ -43,14 +47,25 @@ class App extends Component{
   }
 
 
+  alternateDisplay() {
+    this.setState(prevState => ({
+      display: !prevState.display
+    }));
+  }
+
   handleSubmit(e) {
     e.preventDefault();
+    this.alternateDisplay();
   }
 
   render() {
+    let className = '';
+    if (this.state.display) {
+      className += 'hidden';
+    }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} id='form' className={className}>
           <h1>Create CV</h1>
           <BasicInfo
             cb={this.handleBasicChange}
@@ -70,7 +85,9 @@ class App extends Component{
           email={this.state.basic.email}
           phone={this.state.basic.phone}
           education={this.state.education}
-          experience={this.state.experience} />
+          experience={this.state.experience}
+          display={this.state.display}
+          alternate={this.alternateDisplay} />
       </div>
     )
   }
