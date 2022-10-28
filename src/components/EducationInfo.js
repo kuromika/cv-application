@@ -8,6 +8,7 @@ class EducationInfo extends Component{
         super();
         this.handleAdd = this.handleAdd.bind(this);
         this.handleRemove = this.handleRemove.bind(this);
+        this.handleInput = this.handleInput.bind(this);
     }
     
 
@@ -25,6 +26,13 @@ class EducationInfo extends Component{
         this.props.change(this.props.education.filter(edu => edu.id !== key));
     }
 
+    handleInput(name, value, id) {
+        this.props.change(this.props.education.map(edu =>
+            edu.id === id ? { ...edu, [name]: value } : edu
+            )
+        )
+    }
+
     render() {
 
         const education = [];
@@ -33,7 +41,8 @@ class EducationInfo extends Component{
                 <EducationForm
                     key={school.id}
                     delete={this.handleRemove}
-                    id= {school.id}  
+                    id={school.id}
+                    input={this.handleInput}
                 />
             )
         })

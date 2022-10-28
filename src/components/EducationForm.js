@@ -16,24 +16,32 @@ class EducationForm extends Component{
         return (
             <div>
                 <InfoInput
-                    name='school'
+                    name='name'
                     label='School name: '
                     type='text'
+                    cb={this.props.input}
+                    id = {this.props.id}
                 />
                 <InfoInput
                     name='title'
                     label='Title: '
                     type="text"
+                    cb={this.props.input}
+                    id = {this.props.id}
                 />
                 <InfoInput
                     name='start'
                     label='Start date: '
                     type='date'
+                    cb={this.props.input}
+                    id = {this.props.id}
                 />
                 <InfoInput
                     name='end'
                     label='End date: '
                     type='date'
+                    cb={this.props.input}
+                    id = {this.props.id}
                 />
                 <button type="button" onClick={this.handleDelete}> delete </button>
             </div>

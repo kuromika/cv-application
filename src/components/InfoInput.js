@@ -9,7 +9,7 @@ class InfoInput extends Component{
 
     //cb is the inverse data flow callback to change the parent state.
     handleInputChange(e) {
-        this.props.cb(e.target.name, e.target.value);
+        this.props.cb(e.target.name, e.target.value, this.props.id);
     }
 
     render() {
@@ -20,7 +20,7 @@ class InfoInput extends Component{
                     <input type={this.props.type}
                         onChange={this.handleInputChange}
                         name={this.props.name}
-                        id={this.props.name}>
+                        >
                     </input>
             </div>
         )
