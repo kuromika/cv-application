@@ -19,10 +19,11 @@ class App extends Component{
       display: false,
     };
     this.handleBasicChange = this.handleBasicChange.bind(this);
-    this.handleEducationChange = this.handleEducationChange.bind(this);
-    this.handleExperienceChange = this.handleExperienceChange.bind(this);
     this.alternateDisplay = this.alternateDisplay.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   handleBasicChange(name, value) {
@@ -34,18 +35,25 @@ class App extends Component{
     }))
   }
 
-  handleEducationChange(education) {
-    this.setState({
-      education: education
-    })
+  handleAdd(attr,val) {
+    this.setState(prevState => ({
+      [attr]: [...prevState[attr], val]
+    }))
   }
 
-  handleExperienceChange(experience) {
-    this.setState({
-      experience: experience
-    })
+  handleRemove(attr, key) {
+    this.setState(prevState => ({
+      [attr]: prevState[attr].filter(edu => edu.id !== key)
+    }));
   }
-
+  
+  handleInput(attr, name, value, id) {
+    this.setState(prevState => ({
+      [attr]: prevState[attr].map(
+        edu => edu.id === id ? {...edu, [name] : value} : edu
+      )
+    }))
+  }
 
   alternateDisplay() {
     this.setState(prevState => ({
@@ -71,12 +79,16 @@ class App extends Component{
             cb={this.handleBasicChange}
           />
           <EducationInfo
-            education={this.state.education}
-            change={this.handleEducationChange}
+            add={this.handleAdd}
+            remove={this.handleRemove}
+            input = {this.handleInput}
+            data = {this.state.education}
           />
           <ExperienceInfo
-            experience={this.state.experience}
-            change={this.handleExperienceChange}
+            add={this.handleAdd}
+            remove={this.handleRemove}
+            input = {this.handleInput}
+            data = {this.state.experience}
           />
           <button type="submit" id="submit" className="display-button"> Submit </button>
         </form>

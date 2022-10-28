@@ -11,30 +11,28 @@ class ExperienceInfo extends Component{
     }
 
     handleAdd() {
-        this.props.change(this.props.experience.concat({
+        this.props.add('experience',{
             company: '',
             position: '',
             tasks: '',
             start: '',
             end: '',
             id: uniqid()
-        }))
+        })
     }
 
     handleRemove(key) {
-        this.props.change(this.props.experience.filter(exp => exp.id !== key));
+        this.props.remove('experience', key);
     }
 
     handleInput(name, value, id) {
-        this.props.change(this.props.experience.map(exp =>
-            exp.id === id ? { ...exp, [name]: value } : exp)
-        )
+        this.props.input('experience', name, value, id);
     }
 
 
     render() {
         const experience = [];
-        this.props.experience.forEach((exp) => {
+        this.props.data.forEach((exp) => {
             experience.push(
                 <ExperienceForm
                     key={exp.id}

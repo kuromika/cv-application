@@ -13,30 +13,27 @@ class EducationInfo extends Component{
     
 
     handleAdd() {
-        this.props.change(this.props.education.concat({
+        this.props.add('education', {
             name: '',
             title: '',
             start: '',
             end: '',
             id: uniqid()
-        }))
+        })
     }
 
     handleRemove(key) {
-        this.props.change(this.props.education.filter(edu => edu.id !== key));
+        this.props.remove('education', key);
     }
 
     handleInput(name, value, id) {
-        this.props.change(this.props.education.map(edu =>
-            edu.id === id ? { ...edu, [name]: value } : edu
-            )
-        )
+        this.props.input('education', name, value, id);
     }
 
     render() {
 
         const education = [];
-        this.props.education.forEach((school) => {
+        this.props.data.forEach((school) => {
             education.push(
                 <EducationForm
                     key={school.id}
