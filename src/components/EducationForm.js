@@ -32,14 +32,14 @@ class EducationForm extends Component{
                 <InfoInput
                     name='start'
                     label='Start date: '
-                    type='date'
+                    type='month'
                     cb={this.props.input}
                     id = {this.props.id}
                 />
                 <InfoInput
                     name='end'
                     label='End date: '
-                    type='date'
+                    type='month'
                     cb={this.props.input}
                     id = {this.props.id}
                 />

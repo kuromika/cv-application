@@ -10,7 +10,7 @@ class DisplayCV extends Component{
                 <div key={uniqid()}>
                     <div>
                         <h4>{school.name}</h4>
-                        <span>from {school.start} to {school.end}</span>
+                        <span>{school.start} - {school.end}</span>
                     </div>
                     <h5>{school.title}</h5>
                 </div>

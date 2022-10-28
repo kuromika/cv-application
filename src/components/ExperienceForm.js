@@ -38,14 +38,14 @@ class ExperienceForm extends Component{
                 />
                 <InfoInput
                     name='start'
-                    type='date'
+                    type='month'
                     label='Start date: '
                     id={this.props.id}
                     cb = {this.props.input}
                 />
                 <InfoInput
                     name='end'
-                    type="date"
+                    type="month"
                     label='End date'
                     id={this.props.id}
                     cb = {this.props.input}
