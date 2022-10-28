@@ -4,8 +4,8 @@ import EducationForm from "./EducationForm";
 
 class EducationInfo extends Component{
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.handleAdd = this.handleAdd.bind(this);
         this.handleRemove = this.handleRemove.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -16,8 +16,8 @@ class EducationInfo extends Component{
         this.props.change(this.props.education.concat({
             name: '',
             title: '',
-            start: new Date(),
-            end: new Date(),
+            start: '',
+            end: '',
             id: uniqid()
         }))
     }

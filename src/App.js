@@ -18,6 +18,7 @@ class App extends Component{
     };
     this.handleBasicChange = this.handleBasicChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
+    this.handleExperienceChange = this.handleExperienceChange.bind(this);
   }
 
   handleBasicChange(name, value) {
@@ -32,6 +33,12 @@ class App extends Component{
   handleEducationChange(education) {
     this.setState({
       education: education
+    })
+  }
+
+  handleExperienceChange(experience) {
+    this.setState({
+      experience: experience
     })
   }
 
@@ -52,7 +59,10 @@ class App extends Component{
             education={this.state.education}
             change={this.handleEducationChange}
           />
-          <ExperienceInfo />
+          <ExperienceInfo
+            experience={this.state.experience}
+            change={this.handleExperienceChange}
+          />
           <button type="submit"> Preview </button>
         </form>
         {/* <DisplayCV
