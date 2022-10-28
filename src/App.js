@@ -37,7 +37,7 @@ class App extends Component{
 
   handleAdd(attr,val) {
     this.setState(prevState => ({
-      [attr]: [...prevState[attr], val]
+      [attr]: [...prevState[attr]].concat(val)
     }))
   }
 
