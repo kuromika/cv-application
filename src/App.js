@@ -78,7 +78,7 @@ class App extends Component{
             experience={this.state.experience}
             change={this.handleExperienceChange}
           />
-          <button type="submit" id="submit"> Submit </button>
+          <button type="submit" id="submit" className="display-button"> Submit </button>
         </form>
         <DisplayCV
           name={this.state.basic.name}

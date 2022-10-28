@@ -16,7 +16,7 @@ class DisplayCV extends Component{
 
     render() {
 
-        let className = '';
+        let className = 'display ';
         if (!this.props.display) {
             className += 'hidden';
         }
@@ -24,8 +24,8 @@ class DisplayCV extends Component{
         const education = [];
         this.props.education.forEach((school) => {
             education.push(
-                <div key={uniqid()}>
-                    <div>
+                <div key={uniqid()} className='info'>
+                    <div className="header">
                         <h4>{school.name}</h4>
                         <span> {this.formatDate(school.start)} - {this.formatDate(school.end)}</span>
                     </div>
@@ -37,8 +37,8 @@ class DisplayCV extends Component{
         const experience = [];
         this.props.experience.forEach((job) => {
             experience.push(
-                <div key={uniqid()}>
-                    <div>
+                <div key={uniqid()} className='info'>
+                    <div className="header">
                         <h4>{job.position}</h4>
                         <span>{this.formatDate(job.start)} - {this.formatDate(job.end)}</span>
                     </div>
@@ -49,8 +49,8 @@ class DisplayCV extends Component{
         })
 
         return (
-            <div className={className} id="display">
-                <div>
+            <div className={className}>
+                <div id="cv-basic">
                     <h1>{this.props.name}</h1>
                     <div>
                         <h2>{this.props.phone}</h2>
@@ -69,7 +69,9 @@ class DisplayCV extends Component{
                     <hr></hr>
                     {experience}
                 </div>
-                <button type="button" onClick={this.props.alternate}>Edit</button>
+                <button type="button"
+                    onClick={this.props.alternate}
+                className='display-button'>Edit</button>
             </div>
         )
     }

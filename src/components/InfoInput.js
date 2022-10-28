@@ -19,7 +19,8 @@ class InfoInput extends Component{
                 <label htmlFor={this.props.name}>{this.props.label}</label>
                     <input type={this.props.type}
                         onChange={this.handleInputChange}
-                        name={this.props.name}
+                    name={this.props.name}
+                    required
                         >
                     </input>
             </div>

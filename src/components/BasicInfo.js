@@ -13,19 +13,20 @@ class BasicInfo extends Component {
                         cb={this.props.cb}
                         type="text"
                         name='name'
-                        label= 'Full name: '
+                        label='Full name: '
                     />
                     <InfoInput
                         cb={this.props.cb}
                         type="email"
                         name='email'
-                        label= 'Email: '
+                        label='Email: '
                     />
                     <InfoInput
                         cb={this.props.cb}
-                        type="phone"
+                        type="tel"
                         name='phone'
-                        label= 'Phone: '
+                        label='Phone: '
+                        pattern = "+\d"
                         />
                 </div>
             </div>
