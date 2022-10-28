@@ -17,6 +17,7 @@ class App extends Component{
       experience: []
     };
     this.handleBasicChange = this.handleBasicChange.bind(this);
+    this.handleEducationChange = this.handleEducationChange.bind(this);
   }
 
   handleBasicChange(name, value) {
@@ -28,20 +29,37 @@ class App extends Component{
     }))
   }
 
+  handleEducationChange(education) {
+    this.setState({
+      education: education
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+  }
 
   render() {
     return (
       <div>
-        <form >
+        <form onSubmit={this.handleSubmit}>
           <h1>Create CV</h1>
           <BasicInfo
             cb={this.handleBasicChange}
           />
-          <EducationInfo />
+          <EducationInfo
+            education={this.state.education}
+            change={this.handleEducationChange}
+          />
           <ExperienceInfo />
           <button type="submit"> Preview </button>
         </form>
-        <DisplayCV education={[]} experience={[]} />
+        {/* <DisplayCV
+          name={this.state.basic.name}
+          email={this.state.basic.email}
+          phone={this.state.phone}
+          education={this.state.education}
+          experience={this.state.experience} /> */}
       </div>
     )
   }
