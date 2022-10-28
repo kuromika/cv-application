@@ -3,6 +3,15 @@ import InfoInput from "./InfoInput";
 
 class EducationForm extends Component{
 
+    constructor() {
+        super();
+        this.handleDelete = this.handleDelete.bind(this);
+    }
+
+    handleDelete() {
+        this.props.delete(this.props.id);
+    }
+
     render() {
         return (
             <div>
@@ -26,7 +35,7 @@ class EducationForm extends Component{
                     label='End date: '
                     type='date'
                 />
-                <button type="button"> delete </button>
+                <button type="button" onClick={this.handleDelete}> delete </button>
             </div>
         )
     }

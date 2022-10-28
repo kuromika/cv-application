@@ -7,11 +7,11 @@ class EducationInfo extends Component{
     constructor() {
         super();
         this.handleAdd = this.handleAdd.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
     }
     
 
     handleAdd() {
-
         this.props.change(this.props.education.concat({
             name: '',
             title: '',
@@ -21,12 +21,20 @@ class EducationInfo extends Component{
         }))
     }
 
+    handleRemove(key) {
+        this.props.change(this.props.education.filter(edu => edu.id !== key));
+    }
+
     render() {
 
         const education = [];
         this.props.education.forEach((school) => {
             education.push(
-                <EducationForm key={school.id} />
+                <EducationForm
+                    key={school.id}
+                    delete={this.handleRemove}
+                    id= {school.id}  
+                />
             )
         })
         return (
