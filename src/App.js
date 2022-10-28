@@ -64,8 +64,8 @@ class App extends Component{
       className += 'hidden';
     }
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} id='form' className={className}>
+      <div id='content'>
+        <form onSubmit={this.handleSubmit}  className={className}>
           <h1>Create CV</h1>
           <BasicInfo
             cb={this.handleBasicChange}
@@ -78,7 +78,7 @@ class App extends Component{
             experience={this.state.experience}
             change={this.handleExperienceChange}
           />
-          <button type="submit"> Preview </button>
+          <button type="submit" id="submit"> Submit </button>
         </form>
         <DisplayCV
           name={this.state.basic.name}

@@ -14,7 +14,7 @@ class EducationForm extends Component{
 
     render() {
         return (
-            <div>
+            <div className="education form">
                 <InfoInput
                     name='name'
                     label='School name: '
@@ -43,7 +43,9 @@ class EducationForm extends Component{
                     cb={this.props.input}
                     id = {this.props.id}
                 />
-                <button type="button" onClick={this.handleDelete}> delete </button>
+                <button type="button" onClick={this.handleDelete}
+                    className='delete'
+                > X </button>
             </div>
         )
     }

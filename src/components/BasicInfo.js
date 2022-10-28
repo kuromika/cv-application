@@ -6,26 +6,28 @@ class BasicInfo extends Component {
    
     render() {
         return (
-            <div>
+            <div id='basic-info'>
                 <h2>Basic Information</h2>
-                <InfoInput
-                    cb={this.props.cb}
-                    type="text"
-                    name='name'
-                    label= 'Full name: '
-                />
-                <InfoInput
-                    cb={this.props.cb}
-                    type="email"
-                    name='email'
-                    label= 'Email: '
-                />
-                <InfoInput
-                    cb={this.props.cb}
-                    type="phone" 
-                    name='phone'
-                    label= 'Phone: '
+                <div className="basic-input">
+                    <InfoInput
+                        cb={this.props.cb}
+                        type="text"
+                        name='name'
+                        label= 'Full name: '
                     />
+                    <InfoInput
+                        cb={this.props.cb}
+                        type="email"
+                        name='email'
+                        label= 'Email: '
+                    />
+                    <InfoInput
+                        cb={this.props.cb}
+                        type="phone"
+                        name='phone'
+                        label= 'Phone: '
+                        />
+                </div>
             </div>
         );
     }

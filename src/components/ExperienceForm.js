@@ -14,7 +14,7 @@ class ExperienceForm extends Component{
 
     render() {
         return (
-             <div>
+             <div className="experience form">
                 <InfoInput
                     name='company'
                     type='text'
@@ -50,7 +50,10 @@ class ExperienceForm extends Component{
                     id={this.props.id}
                     cb = {this.props.input}
                 />
-                <button type="button" onClick={this.handleDelete}> delete </button>
+                <button type="button"
+                    onClick={this.handleDelete}
+                    className='delete'
+                > X </button>
             </div>
         )
     }

@@ -48,10 +48,10 @@ class EducationInfo extends Component{
         })
         return (
             //callbacks are pending
-            <div>
-                <div>
+            <div id="education-info">
+                <div id="education-form-header">
                     <h2>Education</h2>
-                    <button type="button" onClick={this.handleAdd}> add </button>
+                    <button type="button" onClick={this.handleAdd} className='add'> + </button>
                 </div>
                 {education}
             </div>

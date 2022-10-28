@@ -15,7 +15,7 @@ class InfoInput extends Component{
     render() {
         return (
 
-            <div>
+            <div className="info-input">
                 <label htmlFor={this.props.name}>{this.props.label}</label>
                     <input type={this.props.type}
                         onChange={this.handleInputChange}

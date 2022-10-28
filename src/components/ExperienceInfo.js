@@ -46,9 +46,10 @@ class ExperienceInfo extends Component{
         })
         return (
             <div>
-                <div>
-                    <h2>Experience</h2>
-                    <button type="button" onClick={this.handleAdd}> add </button>
+                <div id="experience-form-header">
+                    <h2 >Experience</h2>
+                    <button type="button" onClick={this.handleAdd}
+                    className='add'> + </button>
                 </div>
                 {experience}
             </div>
