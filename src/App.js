@@ -43,14 +43,14 @@ class App extends Component{
 
   handleRemove(attr, key) {
     this.setState(prevState => ({
-      [attr]: prevState[attr].filter(edu => edu.id !== key)
+      [attr]: prevState[attr].filter(element => element.id !== key)
     }));
   }
   
   handleInput(attr, name, value, id) {
     this.setState(prevState => ({
       [attr]: prevState[attr].map(
-        edu => edu.id === id ? {...edu, [name] : value} : edu
+        element => element.id === id ? {...element, [name] : value} : element
       )
     }))
   }
