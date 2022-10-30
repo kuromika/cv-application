@@ -155,7 +155,8 @@ form input{
 }
 
 .display h5{
-    font-weight: 400;
+    font-weight: 600;
+    font-style: italic;
     font-size: 20px;
 }
 
