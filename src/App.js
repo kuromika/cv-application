@@ -1,108 +1,89 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import BasicInfo from "./components/BasicInfo";
 import DisplayCV from "./components/DisplayCV";
 import EducationInfo from "./components/EducationInfo";
 import ExperienceInfo from "./components/ExperienceInfo";
 import './styles/style.css';
-class App extends Component{
 
-  constructor() {
-    super();
-    this.state = {
-      basic: {
-        name: '',
-        email: '',
-        phone: '',
-      },
-      education: [],
-      experience: [],
-      display: false,
-    };
-    this.handleBasicChange = this.handleBasicChange.bind(this);
-    this.alternateDisplay = this.alternateDisplay.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
-    this.handleInput = this.handleInput.bind(this);
+const App = () => {
+
+  const [basic, setBasic] = useState({ name: '', email: '', phone: '' });
+  const [data, setData] = useState({education: [], experience: []});
+  const [display, setDisplay] = useState(false);
+
+  const handleBasicChange = (name, value) => {
+    setBasic({
+      ...basic,
+      [name]: value
+    });
   }
 
-  handleBasicChange(name, value) {
-    this.setState(prevState => ({
-      basic: {
-        ...prevState.basic,
-        [name]: value,
-      }
-    }))
+  const handleAdd = (attr, val) => {
+    setData({
+      ...data,
+      [attr]: data[attr].concat(val)
+    });
   }
 
-  handleAdd(attr,val) {
-    this.setState(prevState => ({
-      [attr]: prevState[attr].concat(val)
-    }))
-  }
-
-  handleRemove(attr, key) {
-    this.setState(prevState => ({
-      [attr]: prevState[attr].filter(element => element.id !== key)
-    }));
+  const handleRemove = (attr, key) =>  {
+    setData({
+      ...data,
+      [attr]: data[attr].filter(element => element.id !== key)
+    });
   }
   
-  handleInput(attr, name, value, id) {
-    this.setState(prevState => ({
-      [attr]: prevState[attr].map(
-        element => element.id === id ? {...element, [name] : value} : element
-      )
-    }))
+  const handleInput = (attr, name, value, id) =>  {
+    setData({
+      ...data,
+      [attr]: data[attr].map(
+        element => element.id === id ? { ...element, [name]: value } : element)
+    });
   }
 
-  alternateDisplay() {
-    this.setState(prevState => ({
-      display: !prevState.display
-    }));
+  const alternateDisplay = () =>  {
+    setDisplay(!display);
   }
 
-  handleSubmit(e) {
+  const handleSubmit = (e) =>  {
     e.preventDefault();
-    this.alternateDisplay();
+    alternateDisplay();
   }
 
-  render() {
-    let className = '';
-    if (this.state.display) {
-      className += 'hidden';
-    }
-    return (
-      <div id='content'>
-        <form onSubmit={this.handleSubmit}  className={className}>
-          <h1>Create CV</h1>
-          <BasicInfo
-            cb={this.handleBasicChange}
-          />
-          <EducationInfo
-            add={this.handleAdd}
-            remove={this.handleRemove}
-            input = {this.handleInput}
-            data = {this.state.education}
-          />
-          <ExperienceInfo
-            add={this.handleAdd}
-            remove={this.handleRemove}
-            input = {this.handleInput}
-            data = {this.state.experience}
-          />
-          <button type="submit" id="submit" className="display-button"> Submit </button>
-        </form>
-        <DisplayCV
-          name={this.state.basic.name}
-          email={this.state.basic.email}
-          phone={this.state.basic.phone}
-          education={this.state.education}
-          experience={this.state.experience}
-          display={this.state.display}
-          alternate={this.alternateDisplay} />
-      </div>
-    )
+  let className = '';
+  if (display) {
+    className += 'hidden';
   }
+  return (
+    <div id='content'>
+      <form onSubmit={handleSubmit}  className={className}>
+        <h1>Create CV</h1>
+        <BasicInfo
+          cb={handleBasicChange}
+        />
+        <EducationInfo
+          add={handleAdd}
+          remove={handleRemove}
+          input = {handleInput}
+          data = {data.education}
+        />
+        <ExperienceInfo
+          add={handleAdd}
+          remove={handleRemove}
+          input = {handleInput}
+          data = {data.experience}
+        />
+        <button type="submit" id="submit" className="display-button"> Submit </button>
+      </form>
+      <DisplayCV
+        name={basic.name}
+        email={basic.email}
+        phone={basic.phone}
+        education={data.education}
+        experience={data.experience}
+        display={display}
+        alternate={alternateDisplay} />
+    </div>
+  )
 }
 
 export default App;
