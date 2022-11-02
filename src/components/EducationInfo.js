@@ -1,19 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import uniqid from 'uniqid';
 import EducationForm from "./EducationForm";
 
-class EducationInfo extends Component{
+const EducationInfo = (props) => {
 
-    constructor(props) {
-        super(props);
-        this.handleAdd = this.handleAdd.bind(this);
-        this.handleRemove = this.handleRemove.bind(this);
-        this.handleInput = this.handleInput.bind(this);
-    }
-    
-
-    handleAdd() {
-        this.props.add('education', {
+    const handleAdd = () =>  {
+        props.add('education', {
             name: '',
             title: '',
             start: '',
@@ -22,38 +14,34 @@ class EducationInfo extends Component{
         })
     }
 
-    handleRemove(key) {
-        this.props.remove('education', key);
+    const handleRemove = (key) =>  {
+        props.remove('education', key);
     }
 
-    handleInput(name, value, id) {
-        this.props.input('education', name, value, id);
-    }
+    const handleInput = (name, value, id) =>  {
+        props.input('education', name, value, id);
+    }   
 
-    render() {
-
-        const education = [];
-        this.props.data.forEach((school) => {
-            education.push(
-                <EducationForm
-                    key={school.id}
-                    delete={this.handleRemove}
-                    id={school.id}
-                    input={this.handleInput}
-                />
-            )
-        })
-        return (
-            //callbacks are pending
-            <div id="education-info">
-                <div id="education-form-header">
-                    <h2>Education</h2>
-                    <button type="button" onClick={this.handleAdd} className='add'> + </button>
-                </div>
-                {education}
-            </div>
+    const education = [];
+    props.data.forEach((school) => {
+        education.push(
+            <EducationForm
+                key={school.id}
+                delete={handleRemove}
+                id={school.id}
+                input={handleInput}
+            />
         )
-    }
+    })
+    return (
+        <div id="education-info">
+            <div id="education-form-header">
+                <h2>Education</h2>
+                <button type="button" onClick={handleAdd} className='add'> + </button>
+            </div>
+            {education}
+        </div>
+    )
 }
 
-export default EducationInfo;
+export default EducationInfo;   
