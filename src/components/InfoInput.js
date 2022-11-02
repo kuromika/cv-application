@@ -1,31 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 
-class InfoInput extends Component{
-
-    constructor(props) {
-        super(props);
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
+function InfoInput(props){
 
     //cb is the inverse data flow callback to change the parent state.
-    handleInputChange(e) {
-        this.props.cb(e.target.name, e.target.value, this.props.id);
+    const handleInputChange = (e) => {
+        props.cb(e.target.name, e.target.value, props.id);
     }
 
-    render() {
-        return (
-
-            <div className="info-input">
-                <label htmlFor={this.props.name}>{this.props.label}</label>
-                    <input type={this.props.type}
-                        onChange={this.handleInputChange}
-                    name={this.props.name}
+    return (
+        <div className="info-input">
+            <label htmlFor={props.name}>{props.label}</label>
+                <input type={props.type}
+                    onChange={handleInputChange}
+                    name={props.name}
                     required
-                        >
-                    </input>
-            </div>
-        )
-    }
+                    >
+                </input>
+        </div>
+    )
 }
 
 export default InfoInput;
